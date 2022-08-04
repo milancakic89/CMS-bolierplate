@@ -1,0 +1,33 @@
+<div class="app_root">
+
+  <nav class="navigation" [class.opened]="isNavOpen">
+    <ng-container *ngFor="let nav of navigation">
+          <a *ngIf="nav.items && nav.items.length"
+              class="nav-link"
+              [class.opened]="nav.opened"
+              routerLinkActive="active">
+            <span>{{ nav.label }}</span>
+            <span class="arrow" [class.opened]="nav.opened" (click)="nav.opened = !nav.opened"></span>
+            <div class="nav-inner-links-wrapper" [class.opened]="nav.opened" class="inner-links">
+                  <a class="nav-inner-link"
+                      [routerLink]="[inner.url]"
+                      *ngFor="let inner of nav.items">{{  inner.label }}</a>
+            </div>
+          </a>
+          <a *ngIf="!nav.items?.length"
+              class="nav-link"
+              routerLinkActive="active"
+              [routerLink]="[nav.url]"> <span>{{ nav.label }}</span> </a>
+    </ng-container>
+
+  </nav>
+  <div class="navigation_burger" [class.opened]="isNavOpen" (click)="isNavOpen = !isNavOpen">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="content" [class.opened]="isNavOpen">
+    <div class="header"></div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
