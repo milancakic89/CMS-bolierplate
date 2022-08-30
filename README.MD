@@ -1,3 +1,3 @@
 ## CMS BOILERPLATE
 
-# clone the project, run npm install then ng serve, the open localhost:4200
+# clone the project, run npm install, ng serve, then open localhost:4200
