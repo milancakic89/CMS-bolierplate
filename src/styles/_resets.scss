@@ -1,3 +1,5 @@
+@import './variables';
+
 * {
   box-sizing: border-box;
 }
@@ -6,4 +8,80 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
+}
+
+label {
+  margin-bottom: 8px;
+}
+
+h1{
+  font-size: 44px;
+}
+h2{
+  font-size: 34px;
+}
+h3{
+  font-size: 28px;
+}
+
+h4{
+  font-size: 22px;
+}
+
+
+button {
+  border: none;
+  font-size: 18px;
+  border-radius: 4px;
+  padding: 15px 0 15px 0;
+  margin-bottom: 10px;
+
+  &:hover {
+    opacity: .9;
+    cursor: pointer;
+  }
+
+
+  &.primary {
+    background-color: rgb(3, 162, 90);
+    color: #fff;
+  }
+
+  &.secondary {
+    background-color: rgb(31, 121, 246);
+    color: #fff;
+  }
+
+  &.danger {
+    background-color: $color-error;
+  }
+}
+
+input {
+  min-height: 40px;
+  border: none;
+  border-radius: 3px;
+  padding-left: 10px;
+  margin-bottom: 40px;
+
+
+
+  &.invalid {
+    outline: 3px solid $color-error;
+  }
+
+  &:focus {
+    outline: 3px solid rgb(2, 186, 116);
+  }
+}
+
+
+.link {
+  text-decoration: underline;
+  color: gray;
+  cursor: pointer;
+
+  &:hover {
+    opacity: .8;
+  }
 }

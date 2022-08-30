@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { navigation } from 'src/shared/config/navigation';
+import { AuthService } from 'src/shared/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,12 @@ import { navigation } from 'src/shared/config/navigation';
 })
 export class AppComponent {
 
+  constructor(private auth: AuthService){
+    console.log(auth.isAuthenticated)
+  }
+
   get navigation() { return navigation };
+  get isAuthenticated(){ return this.auth.isAuthenticated}
 
   public isNavOpen = true;
 

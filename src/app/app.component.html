@@ -1,6 +1,5 @@
 <div class="app_root">
-
-  <nav class="navigation" [class.opened]="isNavOpen">
+  <nav class="navigation" [class.opened]="isNavOpen" *ngIf="isAuthenticated">
     <ng-container *ngFor="let nav of navigation">
           <a *ngIf="nav.items && nav.items.length"
               class="nav-link"
@@ -19,15 +18,18 @@
               routerLinkActive="active"
               [routerLink]="[nav.url]"> <span>{{ nav.label }}</span> </a>
     </ng-container>
-
+    <a class="nav-link">Logout</a>
   </nav>
-  <div class="navigation_burger" [class.opened]="isNavOpen" (click)="isNavOpen = !isNavOpen">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <div class="content" [class.opened]="isNavOpen">
-    <div class="header"></div>
+  <ng-container *ngIf="isAuthenticated">
+      <div class="navigation_burger" [class.opened]="isNavOpen" (click)="isNavOpen = !isNavOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="header" ></div>
+  </ng-container>
+
+  <div class="content" [class.opened]="isNavOpen && isAuthenticated">
     <router-outlet></router-outlet>
   </div>
 </div>
