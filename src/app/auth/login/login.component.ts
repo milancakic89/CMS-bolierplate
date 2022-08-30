@@ -20,7 +20,11 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('');
       }
     })
-    this.test()
+  }
+
+  public loginLocaly(){
+    this.authService.loginLocaly();
+
   }
 
   public async test(){

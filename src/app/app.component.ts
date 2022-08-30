@@ -14,7 +14,9 @@ export class AppComponent {
   }
 
   get navigation() { return navigation };
-  get isAuthenticated(){ return this.auth.isAuthenticated}
+  get isAuthenticated(){
+    return this.auth.isAuthenticated
+  }
 
   public isNavOpen = true;
 
