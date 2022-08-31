@@ -4,6 +4,17 @@ import { BehaviorSubject } from "rxjs";
 import { HttpService } from "./http.service";
 import { LocalTaskerService } from "./local-tasker.service";
 
+export interface User{
+  projects: Project[];
+}
+
+interface Project{
+  id: string | number;
+  name: string;
+  short_description: string;
+  description: string;
+}
+
 @Injectable({providedIn: 'root'})
 export class AuthService {
 
@@ -15,28 +26,28 @@ export class AuthService {
     }
   }
 
-  public loggedLocaly = false;
+  get loggedLocaly(): boolean {return this._loggedLocaly};
+  set loggedLocaly(value: boolean) {this._loggedLocaly = value}
 
-  get isAuthenticated(){
-    return this._userSubject.value !== null;
-  }
+  get isAuthenticated(): boolean {return this._userSubject.value !== null}
 
   get autoLoginAvailable(){
     return this._autologin.asObservable();
   }
 
-  get user() { return this._userSubject.value }
-  set user(value: any) { this._userSubject.next(value)}
+  get user(): User { return this._userSubject.value }
+  set user(value: User) { this._userSubject.next(value)}
 
   public loginLocaly(){
     localStorage.setItem('tasker-logged', 'true')
     if(localStorage.getItem('tasker-user')){
-      this.user = JSON.parse(localStorage.getItem('tasker-user') || '')
+       this.user = JSON.parse(localStorage.getItem('tasker-user') || '')
     }else{
-      return this.user = this.localTaskerService.user;
+       this.user = this.localTaskerService.newUser;
+      localStorage.setItem('tasker-user', JSON.stringify(this.user))
     }
     this.loggedLocaly = true;
-    return this.router.navigateByUrl('');
+    this.router.navigateByUrl('');
 
   }
 
@@ -44,6 +55,7 @@ export class AuthService {
     return this.http.get<any>('https://jsonplaceholder.typicode.com/todos/1')
   }
 
-  private _autologin = new BehaviorSubject<any>(false);
-  private _userSubject: BehaviorSubject<any>;
+  private _autologin = new BehaviorSubject<boolean>(false);
+  private _userSubject: BehaviorSubject<User>;
+  private _loggedLocaly = false;
 }

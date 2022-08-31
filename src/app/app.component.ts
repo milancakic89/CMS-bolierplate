@@ -9,9 +9,7 @@ import { AuthService } from 'src/shared/services/auth.service';
 })
 export class AppComponent {
 
-  constructor(private auth: AuthService){
-    console.log(auth.isAuthenticated)
-  }
+  constructor(private auth: AuthService){}
 
   get navigation() { return navigation };
   get isAuthenticated(){

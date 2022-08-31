@@ -1,0 +1,22 @@
+<div class="modal" *ngIf="modal" [class.show]="modal">
+  <ng-container [ngSwitch]="modal">
+    <div class="modal-content">
+      <header>
+        <h4>{{ heading }}</h4>
+      </header>
+      <div class="body">
+
+
+        <ng-container *ngSwitchCase="'delete'">
+          <h5>{{ message }}</h5>
+        </ng-container>
+
+
+      </div>
+      <div class="buttons">
+        <button>Cancel</button>
+        <button (click)="confirm()">Confirm</button>
+      </div>
+    </div>
+  </ng-container>
+</div>

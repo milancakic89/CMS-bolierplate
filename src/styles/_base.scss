@@ -34,11 +34,68 @@ form {
   color: $color-white;
 }
 
-.text-center{
+.text-center {
   text-align: center;
 }
 
 
-.btn-margin{
+.btn-margin {
   margin-bottom: 40px;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0px 7px;
+
+  thead {
+    tr {
+      th {
+        text-align: left;
+        padding: 0px 10px;
+        height: 60px;
+
+        &:last-child {
+          text-align: right;
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      box-shadow: 0px 2px 9px 1px rgb(0 0 0 / 6%);
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: 1px 2px 9px 1px rgb(0 0 0 / 20%);
+      }
+
+      td {
+        text-align: left;
+        padding: 0px 10px;
+        height: 60px;
+        border: none;
+
+        .actions {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+
+          button {
+            margin: 0px 0px 0px 5px;
+            padding: 5px;
+          }
+        }
+
+        &:last-child {
+          text-align: right;
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+
 }

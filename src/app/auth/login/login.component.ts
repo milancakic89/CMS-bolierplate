@@ -11,7 +11,6 @@ import { LocalTaskerService } from 'src/shared/services/local-tasker.service';
 export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService,
-              private localTaskerService: LocalTaskerService,
               private router: Router) { }
 
   ngOnInit(): void {
@@ -26,12 +25,4 @@ export class LoginComponent implements OnInit {
     this.authService.loginLocaly();
 
   }
-
-  public async test(){
-    const { data, error } = await this.authService.login()
-    if(!error){
-      console.log(data)
-    }
-  }
-
 }
