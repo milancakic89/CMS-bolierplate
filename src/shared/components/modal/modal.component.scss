@@ -13,11 +13,33 @@
 
   .buttons {
     display: flex;
+    padding: 10px;
     justify-content: flex-end;
+    background-color: #eee;
 
-    button{
-      margin: 0 0 0 5px;
+    button {
+      margin: 0 0 0 10px;
+      padding: 10px;
+      &.danger {
+        opacity: .8;
+        background-color: transparent;
+        color: gray;
+        font-weight: 600;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
     }
+  }
+
+  &.hide {
+    .modal-content:first-child {
+      animation: hideModal .3s ease-out;
+      top: 0;
+      transform: translate(-50%, -110%);
+    }
+
   }
 
   .modal-content:first-child {
@@ -29,11 +51,11 @@
     box-shadow: 0 1px 9px 1px rgba(96, 96, 96, 0.28);
     animation: dropdown .3s ease-out;
 
-    header{
+    header {
       padding: 20px;
       background-color: #eee;
 
-      h4{
+      h4 {
         margin: 0;
       }
     }
@@ -62,5 +84,17 @@
   to {
     top: 30%;
     transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes hideModal {
+  from {
+    top: 30%;
+    transform: translate(-50%, -50%);
+  }
+
+  to {
+    top: 0;
+    transform: translate(-50%, -110%);
   }
 }

@@ -13,6 +13,8 @@ export class ModalComponent implements OnInit {
   public message = '';
   public heading = '';
 
+  public closeModalAnimation = false;
+
   public modalState: ModalRequest = {
     requestData: null,
     response: null,
@@ -32,7 +34,19 @@ export class ModalComponent implements OnInit {
   }
 
   public confirm(){
-    this.modalService.confirm(this.modalState)
+    this.closeModalAnimation = true;
+    setTimeout(() => {
+      this.closeModalAnimation = false;
+      this.modalService.confirm(this.modalState)
+    }, 300)
+  }
+
+  public onClose(){
+    this.closeModalAnimation = true;
+    setTimeout(() => {
+      this.closeModalAnimation = false;
+      this.modalService.hide();
+    }, 300)
   }
 
 }

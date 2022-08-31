@@ -1,4 +1,4 @@
-<div class="modal" *ngIf="modal" [class.show]="modal">
+<div class="modal" *ngIf="modal" [class.show]="modal" [class.hide]="closeModalAnimation">
   <ng-container [ngSwitch]="modal">
     <div class="modal-content">
       <header>
@@ -14,8 +14,8 @@
 
       </div>
       <div class="buttons">
-        <button>Cancel</button>
-        <button (click)="confirm()">Confirm</button>
+        <button class="danger" (click)="onClose()">Cancel</button>
+        <button class="primary" (click)="confirm()">Confirm</button>
       </div>
     </div>
   </ng-container>
