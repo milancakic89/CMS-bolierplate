@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalRequest, ModalService } from 'src/shared/components/modal/modal.service';
 import { AuthService } from 'src/shared/services/auth.service';
-import { LocalTaskerService } from 'src/shared/services/local-tasker.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,7 @@ import { LocalTaskerService } from 'src/shared/services/local-tasker.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private authService: AuthService, public modalService: ModalService) { }
+  constructor(private authService: AuthService, public modalService: ModalService, private router: Router) { }
 
   get user(){ return this.authService.user}
 
@@ -18,12 +18,13 @@ export class HomeComponent implements OnInit {
     console.log(this.authService.user)
   }
 
-  public openProject($event: any, id: string | number){
-    console.log('trigered open project')
+  public openProject(id: string | number){
+    this.router.navigateByUrl(`projects/${id}`);
   }
 
   public edit($event: any, id: string | number){
     $event.stopPropagation();
+    this.router.navigateByUrl(`projects/edit/${id}`);
   }
 
   public delete($event: any, id: string | number){

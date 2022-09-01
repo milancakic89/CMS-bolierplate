@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Location } from '@angular/common';
+import { Component, HostListener, OnDestroy } from '@angular/core';
 import { navigation } from 'src/shared/config/navigation';
 import { AuthService } from 'src/shared/services/auth.service';
 
@@ -7,7 +8,7 @@ import { AuthService } from 'src/shared/services/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent{
 
   constructor(private auth: AuthService){}
 

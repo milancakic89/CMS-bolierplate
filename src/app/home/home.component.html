@@ -1,4 +1,4 @@
-<h2><span>Projects</span><button class="primary">Create new project</button></h2>
+<h2 class="heading"><span>Projects</span><a class="primary" routerLink="/projects/new">Create new project</a></h2>
 <table>
   <thead>
     <tr>
@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let project of user.projects" (click)="openProject($event, project.id)">
+    <tr *ngFor="let project of user.projects" (click)="openProject(project.id)">
       <td>{{ project.name }}</td>
       <td>{{ project.short_description }}</td>
       <td>

@@ -23,6 +23,6 @@ export class LoginComponent implements OnInit {
 
   public loginLocaly(){
     this.authService.loginLocaly();
-
+    this.router.navigateByUrl('');
   }
 }

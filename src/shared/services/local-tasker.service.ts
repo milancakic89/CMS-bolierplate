@@ -13,7 +13,8 @@ export class LocalTaskerService {
         id: 0,
         name: 'My first project',
         short_description: 'Edit me by clicking on edit button',
-        description: '',
+        description: 'This is some description',
+        dashboard: []
       }
     ]
   }

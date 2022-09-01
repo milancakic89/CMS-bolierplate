@@ -5,14 +5,15 @@ import { HttpService } from "./http.service";
 import { LocalTaskerService } from "./local-tasker.service";
 
 export interface User{
-  projects: Project[];
+  projects: ProjectInfo[];
 }
 
-interface Project{
+export interface ProjectInfo {
   id: string | number;
   name: string;
   short_description: string;
   description: string;
+  dashboard: any[];
 }
 
 @Injectable({providedIn: 'root'})
@@ -29,7 +30,7 @@ export class AuthService {
   get loggedLocaly(): boolean {return this._loggedLocaly};
   set loggedLocaly(value: boolean) {this._loggedLocaly = value}
 
-  get isAuthenticated(): boolean {return this._userSubject.value !== null}
+   get isAuthenticated(): boolean {return this._userSubject.value !== null}
 
   get autoLoginAvailable(){
     return this._autologin.asObservable();
@@ -47,8 +48,6 @@ export class AuthService {
       localStorage.setItem('tasker-user', JSON.stringify(this.user))
     }
     this.loggedLocaly = true;
-    this.router.navigateByUrl('');
-
   }
 
   public login(){
