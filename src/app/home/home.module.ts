@@ -4,8 +4,6 @@ import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { ButtonsModule } from 'src/shared/components/buttons/buttons.module';
 
-
-
 @NgModule({
   declarations: [
     HomeComponent
