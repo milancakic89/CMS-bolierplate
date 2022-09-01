@@ -1,5 +1,5 @@
 {
-  "name": "algorithms",
+  "name": "tasker",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -36,5 +36,17 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.3.5"
-  }
+  },
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/milancakic89/tasker.git"
+  },
+  "author": "Milan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/milancakic89/tasker/issues"
+  },
+  "homepage": "https://github.com/milancakic89/tasker#readme",
+  "description": ""
 }
